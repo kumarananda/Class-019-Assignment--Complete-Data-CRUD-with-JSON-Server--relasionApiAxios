@@ -1,10 +1,12 @@
 // get element
 const skill = document.querySelector('#skill_load');
-const skill2 = document.querySelector('#skill_load2');
+const skill2 = document.querySelector('#eskill_load2');
 const dev_add_form = document.querySelector('#dev_add_form');
 const load_alldevs = document.querySelector('.load_alldevs');
 const devs_edit_btns = document.querySelector('.devs_edit_btn');
 const dev_edit_form = document.querySelector('#dev_edit_form');
+const viewdetiles = document.querySelector('#viewdetiles');
+
 
 
 // console.log(skill);
@@ -32,7 +34,20 @@ const loadSkills = () => {
             
         });
         skill.insertAdjacentHTML('beforeend', skillload) //afterbegin,afterend,beforebegin
-        skill2.insertAdjacentHTML('beforeend', skillload) //afterbegin,afterend,beforebegin
+        // skill2.insertAdjacentHTML('beforeend', skillload) //afterbegin,afterend,beforebegin
+       
+    })
+    axios.get('http://localhost:2022/skill').then(withAxios => {
+        // console.log(withAxios.data);
+            let skillload2 = "";
+            withAxios.data.map(skill => {
+            skillload2 += `
+            <option value="${skill.id}">${skill.name}</option>
+            `;
+            
+        });
+        // skill.insertAdjacentHTML('beforeend', skillload) //afterbegin,afterend,beforebegin
+        skill2.insertAdjacentHTML('beforeend', skillload2) //afterbegin,afterend,beforebegin
        
     })
 
@@ -47,16 +62,17 @@ const get_developers = () => {
     axios.get('http://localhost:2022/developers').then(res => {
         dev_data = "";
         res.data.map((dev, index) => {
+            console.log(index);
             dev_data += `
             <tr>
                             <td>${index + 1}</td>
                             <td>${dev.name}</td>
                             <td>${dev.mail}</td>
                             <td>${dev.phone}</td>
-                            <td>${dev.skillId}</td>
+                            <td>${skillvalue(dev.skillId)}</td>
                             <td><img style="height:50px;width:auto;" src="${dev.photo}" alt=""></td>
                             <td>
-                                <a data-bs-toggle="modal" href="#viewModal" class="devs_view_btn btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
+                                <a data-bs-toggle="modal" onclick="view_devs(${dev.id })" href="#viewModal" class="devs_view_btn btn btn-sm btn-info"><i class="fa fa-eye"></i></a>
                                 <a data-bs-toggle="modal" href="#editModal" onclick="edit_devs(${dev.id})"  class="devs_edit_btn btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
                                 <a data-bs-toggle="modal"  onclick="del_devs(${dev.id})"  class="devs_del_btn btn btn-sm btn-danger "><i class="fa fa-trash"></i></a>
                             </td>
@@ -117,7 +133,7 @@ function edit_devs(id){
     let mail = document.getElementById('email');
     let phone = document.getElementById('ePhone');
     let photo = document.getElementById('ephoto');
-    let skill_load = document.getElementById('eskill_load');
+    let skill_add = document.getElementById('eskill_load2');
     let ePreview = document.getElementById('ePreview');
     let edit_id = document.getElementById('edit_id');
 
@@ -129,7 +145,7 @@ function edit_devs(id){
         mail.value = res.data.mail;
         phone.value = res.data.phone;
         photo.value = res.data.photo;
-        skill_load.value = res.data.skillId;
+        skill_add.children[res.data.skillId].setAttribute("selected", true)
         edit_id.value = id
         ePreview.setAttribute('src', res.data.photo)
     });
@@ -142,9 +158,10 @@ dev_edit_form.addEventListener('submit', function (e) {
     let mail = this.querySelector('#email');
     let phone = this.querySelector('#ePhone');
     let photo = this.querySelector('#ephoto');
-    let skill_load = this.querySelector('#eskill_load');
+    let skill_add = this.querySelector('#eskill_load2');
     let edit_id = this.querySelector('#edit_id');
 
+    console.log(skill_add.value);
 
     // console.log(name.value ,mail.value, phone.value, photo.value, skill_load.value, edit_id.value);
 
@@ -155,7 +172,7 @@ dev_edit_form.addEventListener('submit', function (e) {
             name : name.value,
             mail : mail.value,
             phone : phone.value,
-            skillId : skill_load.value,
+            skillId : skill_add.value,
             photo : photo.value
         }
     ).then(res => {
@@ -163,7 +180,7 @@ dev_edit_form.addEventListener('submit', function (e) {
             name.value = '';
             mail.value = '';
             phone.value = '';
-            skill_load.value = '';
+            skill_add.value = '';
             photo.value = '';
 
             get_developers();
@@ -179,3 +196,22 @@ function del_devs(id) {
     })
     }
 };
+function view_devs(id) {
+    // console.log(id);
+    axios.get(`http://localhost:2022/developers/${id}`).then(res => {
+        
+        viewdetiles.innerHTML = `
+            <div class="vdimg text-center mb-3">
+            <img style="width: auto;height: 100px;" src="${res.data.photo}" alt="">
+            </div>
+
+            <span class="w-100 text-center ">Name : ${res.data.name}</span>
+            <span class="w-100 text-center ">Email : ${res.data.mail}</span>
+            <span class="w-100 text-center">Phone : ${res.data.phone}</span>
+            <span class="w-100 text-center">Skill : ${skillvalue(res.data.skillId)}</span>
+        `;
+        console.log(res.data);
+  
+    });
+}
+

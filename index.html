@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C019-Result-Apps</title>
+    <title>C019-axios-API</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -87,44 +87,32 @@
     <div class="modal fade" id="viewModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                
-                <div class="modal-body">
-                    <h3>View Details</h3> 
-
-                    <form action="" id="dev_view_form">
-                        <div class="form-group mb-2">
-                            <label for="vname">Name</label>
-                            <input id="vname" type="text" class="form-control">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="vmail">Email</label>
-                            <input id="vmail" type="text" class="form-control">
-                        </div>
-                        <div class="form-group mb-2">
-                            <label for="vPhone">Phone</label>
-                            <input id="vPhone" type="text" class="form-control">
-                        </div>
-                        
-                        <div class="form-group mb-2">
-                            <label for="vskill_load">Skill</label>
-                            <select class="form-control" name="" id="vskill_load">
-                                <option value="">--select--</option>
-                                <!-- <div class="skill-load">
-                                    
-                                </div> -->
-                            </select>
-                        </div>
-                        <div class="form-group mb-2">
-                            
-                            <label  for="vphoto">Photo</label>
-                            <input id="vphoto" type="text" class="form-control">
-                        </div>
-                        
-                        <div class="form-group mb-2">
-                            <input data-bs-dismiss="modal" id="vmClose" type="Submit" class="btn btn-success w-100" value="Add New">
-                        </div>
-                    </form>
+                <div class="modal-header ">
+                    <h3 class="text-center w-100 mb-3">View Details</h3>
+                    <div class="">
+                        <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
+                    </div>
                 </div>
+                
+                <div class="modal-body ">
+                    <div id="viewdetiles">
+                        
+                    </div>
+                     
+                    <!-- <div class="vdimg text-center mb-3">
+                        <img style="width: auto;height: 100px;" src="https://lfwf.io/uploads/studentProfile/thumb/1634562723.png" alt="">
+                    </div>
+                    <span class="w-100 text-center ">No : 1</span>
+                    <span class="w-100 text-center ">Name : Name</span>
+                    <span class="w-100 text-center ">Email : mail</span>
+                    <span class="w-100 text-center">Phone : phone</span>
+                    <span class="w-100 text-center">Skill : skill</span> -->
+                    
+                </div>
+                <!-- Modal footer -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+    </div>
                 
                 
             </div>
@@ -169,7 +157,7 @@
                         </div> -->
                         <div class="form-group mb-2">
                             <label for="skill_load2">Skill</label>
-                            <select class="form-control" name="" id="skill_load2">
+                            <select class="form-control" name="" id="eskill_load2">
                                 <option value="">--select--</option>
                                 <!-- <div class="skill-load">
                                     
