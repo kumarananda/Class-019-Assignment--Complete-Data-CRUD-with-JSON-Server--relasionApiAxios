@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C019-Result-Apps</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- Data table -->
+    <div class="devs">
+        <a class="btn btn-primary btn-md" data-bs-toggle="modal" href="#addModal">Add New Devs</a>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-striped table-bordered table-hover table-condensed text-center">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Call</th>
+                            <th>Skill</th>
+                            <th>Photo</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Ananda</td>
+                            <td>anandasaha@gmail.com</td>
+                            <td>01913918163</td>
+                            <td>MERN</td>
+                            <td><img src="" alt="">#</td>
+                            <td>
+                                <a data-bs-toggle="modal" href="#viewModal" class="btn btn-sm btn-info fa fa-eye"></a>
+                                <a data-bs-toggle="modal" href="#editModal" class="btn btn-sm btn-warning fa fa-edit"></a>
+                                <a data-bs-toggle="modal" href="#editModal" class="btn btn-sm btn-danger fa fa-trash"></a>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Devs Add modal -->
+    <div class="modal fade" id="addModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Add New Davs</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group mb-2">
+                            <label for="">Name</label>
+                            <input id="" type="text" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Email</label>
+                            <input id="" type="text" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Mobile</label>
+                            <input id="" type="text" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Skill</label>
+                            <select class="form-control" name="" id="skill_load">
+                                <option value="">--select--</option>
+                                <!-- <div class="skill-load">
+                                    
+                                </div> -->
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="">Photo</label>
+                            <input id="" type="text" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input id="" type="Submit" class="btn btn-success w-100" value="Add New">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Devs view modal -->
+    <div class="modal fade" id="viewModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">jjjj</div>
+                <div class="modal-body">kkk</div>
+                <div class="modal-footer">lll</div>
+            </div>
+        </div>
+    </div>
+    <!-- Devs Edit modal -->
+    <div class="modal fade" id="editModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">jjjj</div>
+                <div class="modal-body">kkk</div>
+                <div class="modal-footer">lll</div>
+            </div>
+        </div>
+    </div>
+    <!-- Devs Delete modal -->
+    <div class="modal fade" id="deletetModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">jjjj</div>
+                <div class="modal-body">kkk</div>
+                <div class="modal-footer">lll</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./function.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
