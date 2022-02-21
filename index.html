@@ -32,21 +32,8 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Ananda</td>
-                            <td>anandasaha@gmail.com</td>
-                            <td>01913918163</td>
-                            <td>MERN</td>
-                            <td><img src="" alt="">#</td>
-                            <td>
-                                <a data-bs-toggle="modal" href="#viewModal" class="btn btn-sm btn-info fa fa-eye"></a>
-                                <a data-bs-toggle="modal" href="#editModal" class="btn btn-sm btn-warning fa fa-edit"></a>
-                                <a data-bs-toggle="modal" href="#editModal" class="btn btn-sm btn-danger fa fa-trash"></a>
-                            </td>
-                        </tr>
-                        
+                    <tbody class="load_alldevs">
+
                     </tbody>
                 </table>
             </div>
@@ -61,21 +48,21 @@
                     <h4>Add New Davs</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" id="dev_add_form">
                         <div class="form-group mb-2">
-                            <label for="">Name</label>
-                            <input id="" type="text" class="form-control">
+                            <label for="name">Name</label>
+                            <input id="name" type="text" class="form-control">
                         </div>
                         <div class="form-group mb-2">
-                            <label for="">Email</label>
-                            <input id="" type="text" class="form-control">
+                            <label for="mail">Email</label>
+                            <input id="mail" type="text" class="form-control">
                         </div>
                         <div class="form-group mb-2">
-                            <label for="">Mobile</label>
-                            <input id="" type="text" class="form-control">
+                            <label for="Phone">Phone</label>
+                            <input id="Phone" type="text" class="form-control">
                         </div>
                         <div class="form-group mb-2">
-                            <label for="">Skill</label>
+                            <label for="skill_load">Skill</label>
                             <select class="form-control" name="" id="skill_load">
                                 <option value="">--select--</option>
                                 <!-- <div class="skill-load">
@@ -84,11 +71,11 @@
                             </select>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="">Photo</label>
-                            <input id="" type="text" class="form-control">
+                            <label for="photo">Photo</label>
+                            <input id="photo" type="text" class="form-control">
                         </div>
                         <div class="form-group mb-2">
-                            <input id="" type="Submit" class="btn btn-success w-100" value="Add New">
+                            <input data-bs-dismiss="modal" id="mClose" type="Submit" class="btn btn-success w-100" value="Add New">
                         </div>
                     </form>
                 </div>
@@ -100,9 +87,46 @@
     <div class="modal fade" id="viewModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">jjjj</div>
-                <div class="modal-body">kkk</div>
-                <div class="modal-footer">lll</div>
+                
+                <div class="modal-body">
+                    <h3>View Details</h3> 
+
+                    <form action="" id="dev_view_form">
+                        <div class="form-group mb-2">
+                            <label for="vname">Name</label>
+                            <input id="vname" type="text" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="vmail">Email</label>
+                            <input id="vmail" type="text" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="vPhone">Phone</label>
+                            <input id="vPhone" type="text" class="form-control">
+                        </div>
+                        
+                        <div class="form-group mb-2">
+                            <label for="vskill_load">Skill</label>
+                            <select class="form-control" name="" id="vskill_load">
+                                <option value="">--select--</option>
+                                <!-- <div class="skill-load">
+                                    
+                                </div> -->
+                            </select>
+                        </div>
+                        <div class="form-group mb-2">
+                            
+                            <label  for="vphoto">Photo</label>
+                            <input id="vphoto" type="text" class="form-control">
+                        </div>
+                        
+                        <div class="form-group mb-2">
+                            <input data-bs-dismiss="modal" id="vmClose" type="Submit" class="btn btn-success w-100" value="Add New">
+                        </div>
+                    </form>
+                </div>
+                
+                
             </div>
         </div>
     </div>
@@ -110,19 +134,54 @@
     <div class="modal fade" id="editModal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">jjjj</div>
-                <div class="modal-body">kkk</div>
-                <div class="modal-footer">lll</div>
-            </div>
-        </div>
-    </div>
-    <!-- Devs Delete modal -->
-    <div class="modal fade" id="deletetModal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">jjjj</div>
-                <div class="modal-body">kkk</div>
-                <div class="modal-footer">lll</div>
+
+                <div class="modal-body">
+                    <h3>Edit Details</h3>
+                    <div class="previewimg text-center">
+                        <img class="w-25  " id="ePreview" src="" alt="">
+
+                    </div>
+                    <form action="" id="dev_edit_form">
+                        <div class="form-group mb-2">
+                            <label for="ename">Name</label>
+                            <input id="ename" type="text" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input id="edit_id" type="hidden" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="email">Email</label>
+                            <input id="email" type="text" class="form-control">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="ePhone">Phone</label>
+                            <input id="ePhone" type="text" class="form-control">
+                        </div>
+                        
+                        <div class="form-group mb-2">
+                            <label for="ephoto">Photo</label>
+                            <input id="ephoto" type="text" class="form-control">
+                        </div>
+                        <!-- <div class="form-group mb-2">
+                            <label for="eskill_load">Skill</label>
+                            <input class="form-control" name="" id="eskill_load">
+
+                        </div> -->
+                        <div class="form-group mb-2">
+                            <label for="skill_load2">Skill</label>
+                            <select class="form-control" name="" id="skill_load2">
+                                <option value="">--select--</option>
+                                <!-- <div class="skill-load">
+                                    
+                                </div> -->
+                            </select>
+                        </div>
+                        
+                        <div class="form-group mb-2">
+                            <input data-bs-dismiss="modal" id="emClose" type="Submit" class="btn btn-success w-100" value="Edit Data">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
