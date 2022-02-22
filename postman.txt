@@ -1,0 +1,21 @@
+
+postman sowftware detiles 
+get for get data form Api
+post for new data setup
+put/patch for data edit with id
+delete for data delete with id
+
+api data get by ID = link/id
+api data get by NAME= LINK?NAME= NAME
+api data get by QUARE?q=text 
+sort data get >> link?_sort=age&_order=asc
+sort data get >> link?_sort=age&_order=desc
+
+http://localhost:5050/StudentsMark??q=text
+http://localhost:5050/StudentsMark?_sort=age&_order=asc
+http://localhost:5050/StudentsMark?_sort=age&_order=desc
+
+relasion ship
+http://localhost:2020/skill/2/developers
+http://localhost:2020/role/1/developers
+
